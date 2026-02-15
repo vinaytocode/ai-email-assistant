@@ -1,0 +1,18 @@
+{
+  "examples": [
+    {
+      "type": "follow_up",
+      "prompt": "Follow up on project deadline extension request",
+      "tone": "professional",
+      "user_type": "student",
+      "email": "Subject: Following Up on Project Extension Request\n\nDear Professor,\n\nI hope this email finds you well. I wanted to follow up on my request from last week regarding a possible extension for the final project deadline.\n\nAs I mentioned, I've encountered some unexpected challenges that have impacted my progress. I'm committed to delivering quality work and believe an additional week would allow me to do so.\n\nI appreciate your consideration and look forward to your response.\n\nBest regards,\nJordan Taylor"
+    },
+    {
+      "type": "thank_you",
+      "prompt": "Thank colleague for help with technical issue",
+      "tone": "friendly",
+      "user_type": "software_engineer",
+      "email": "Subject: Thanks for the Debug Help!\n\nHey Alex,\n\nJust wanted to shoot you a quick thank you for helping me debug that authentication issue yesterday. Your insight about the token expiration saved me hours of head-scratching!\n\nI owe you a coffee ☕\n\nCheers,\nAlex Chen"
+    }
+  ]
+}

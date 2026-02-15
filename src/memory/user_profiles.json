@@ -1,0 +1,48 @@
+{
+  "software_engineer": {
+    "role": "Software Engineer",
+    "name": "Alex Chen",
+    "company": "TechCorp Solutions",
+    "writing_style": "technical, concise, professional with occasional industry jargon",
+    "signature": "Best regards,\nAlex Chen\nSenior Software Engineer\nTechCorp Solutions\nalex.chen@techcorp.com\n+1 (555) 123-4567"
+  },
+  "student": {
+    "role": "Student",
+    "name": "Jordan Taylor",
+    "institution": "State University",
+    "major": "Computer Science",
+    "writing_style": "respectful, clear, formal yet approachable",
+    "signature": "Best regards,\nJordan Taylor\nComputer Science Major\nState University\njtaylor@stateuniversity.edu"
+  },
+  "teacher": {
+    "role": "Teacher",
+    "name": "Dr. Sarah Smith",
+    "institution": "City High School",
+    "subject": "Mathematics",
+    "writing_style": "clear, encouraging, professional with warmth",
+    "signature": "Kind regards,\nDr. Sarah Smith\nMathematics Department\nCity High School\nssmith@cityhs.edu\n(555) 987-6543"
+  },
+  "musician": {
+    "role": "Musician",
+    "name": "Jamie Rodriguez",
+    "band": "The Sound Waves",
+    "genre": "Indie Rock",
+    "writing_style": "creative, friendly, expressive with artistic flair",
+    "signature": "Cheers,\nJamie Rodriguez\nLead Guitarist & Composer\nThe Sound Waves\njamie@soundwaves.music\nInstagram: @jamiesoundwaves"
+  },
+  "business_executive": {
+    "role": "Business Executive",
+    "name": "Michael Anderson",
+    "company": "Global Ventures Inc.",
+    "position": "Chief Operating Officer",
+    "writing_style": "direct, strategic, authoritative yet diplomatic",
+    "signature": "Regards,\nMichael Anderson\nChief Operating Officer\nGlobal Ventures Inc.\nmanderson@globalventures.com\nOffice: +1 (555) 200-3000"
+  },
+  "freelancer": {
+    "role": "Freelance Designer",
+    "name": "Emma Williams",
+    "specialty": "UI/UX Design",
+    "writing_style": "friendly, professional, creative and collaborative",
+    "signature": "Best,\nEmma Williams\nUI/UX Designer\nPortfolio: emmawilliams.design\nemma@emmawilliams.design\n+1 (555) 456-7890"
+  }
+}

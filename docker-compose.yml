@@ -1,0 +1,33 @@
+services:
+  app:  # ← Simple service name
+    build: .
+    image: ai-email-assistant:latest  # ← Explicitly name the image
+    container_name: ai-email-assistant  # ← Name the container
+    ports:
+      - "8501:8501"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEFAULT_MODEL=${DEFAULT_MODEL:-gpt-4o-mini}
+      - DEFAULT_TEMPERATURE=${DEFAULT_TEMPERATURE:-0.3}
+      - MAX_TOKENS=${MAX_TOKENS:-1000}
+      - APP_TITLE=${APP_TITLE:-AI Email Assistant}
+      - APP_PORT=${APP_PORT:-8501}
+      - DEBUG=${DEBUG:-false}
+      - MAX_CONTEXT_ENTRIES=${MAX_CONTEXT_ENTRIES:-3}
+      - ENABLE_CONTEXT_MEMORY=${ENABLE_CONTEXT_MEMORY:-true}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - ai-email-network
+
+networks:
+  ai-email-network:
+    driver: bridge

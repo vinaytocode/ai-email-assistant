@@ -1,0 +1,16 @@
+{
+  "templates": {
+    "meeting_request": {
+      "subject": "Request for Meeting: [Topic]",
+      "structure": ["Greeting", "Purpose statement", "Proposed times", "Agenda preview", "Closing"]
+    },
+    "status_update": {
+      "subject": "Status Update: [Project Name]",
+      "structure": ["Greeting", "Progress summary", "Completed items", "Upcoming tasks", "Blockers (if any)", "Closing"]
+    },
+    "introduction": {
+      "subject": "Introduction: [Your Name]",
+      "structure": ["Greeting", "Self-introduction", "Purpose of contact", "Value proposition", "Call to action", "Closing"]
+    }
+  }
+}

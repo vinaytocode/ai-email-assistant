@@ -1,0 +1,104 @@
+# MCP (Multi-Agent Communication Protocol) Configuration
+# Defines agent communication patterns and orchestration
+
+version: "1.0"
+protocol_name: "AI Email Assistant MCP"
+
+# Agent Registry
+agents:
+  input_parser:
+    name: "InputParserAgent"
+    description: "Extracts and structures information from raw user input"
+    priority: 1
+    timeout_seconds: 30
+    
+  intent_detector:
+    name: "IntentDetectorAgent"
+    description: "Identifies the primary intent and purpose of the email"
+    priority: 2
+    timeout_seconds: 30
+    
+  tone_stylist:
+    name: "ToneStylistAgent"
+    description: "Defines tone and style guidelines based on user preferences"
+    priority: 3
+    timeout_seconds: 30
+    
+  draft_writer:
+    name: "DraftWriterAgent"
+    description: "Creates initial email draft with proper structure"
+    priority: 4
+    timeout_seconds: 45
+    
+  personalizer:
+    name: "PersonalizerAgent"
+    description: "Personalizes email with user profile information"
+    priority: 5
+    timeout_seconds: 30
+    
+  reviewer:
+    name: "ReviewerAgent"
+    description: "Reviews draft for quality and provides feedback"
+    priority: 6
+    timeout_seconds: 30
+    
+  finalizer:
+    name: "FinalizerAgent"
+    description: "Produces final polished email"
+    priority: 7
+    timeout_seconds: 30
+
+# Workflow Configuration
+workflow:
+  name: "email_generation_pipeline"
+  type: "sequential"
+  
+  stages:
+    - stage: "input_processing"
+      agents: ["input_parser", "intent_detector"]
+      parallel: false
+      
+    - stage: "content_creation"
+      agents: ["tone_stylist", "draft_writer"]
+      parallel: false
+      
+    - stage: "personalization"
+      agents: ["personalizer"]
+      parallel: false
+      
+    - stage: "quality_assurance"
+      agents: ["reviewer", "finalizer"]
+      parallel: false
+
+# Communication Protocol
+communication:
+  message_format: "json"
+  state_persistence: true
+  enable_logging: true
+  
+  error_handling:
+    retry_attempts: 2
+    fallback_strategy: "continue_with_warning"
+    
+  performance:
+    max_total_time_seconds: 180
+    enable_caching: true
+
+# Context Management
+context:
+  max_history_entries: 3
+  include_metadata: true
+  context_fields:
+    - "intent"
+    - "tone"
+    - "user_profile"
+    - "timestamp"
+
+# Integration Settings
+integrations:
+  llm_provider: "openai"
+  default_model: "gpt-4o-mini"
+  temperature_range:
+    min: 0.3
+    max: 0.7
+    default: 0.5
