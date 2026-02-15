@@ -111,6 +111,7 @@ Personalizer → Reviewer → Finalizer → Final Email
 - [Usage Guide](docs/usage.md)
 - [API Reference](docs/api_reference.md)
 - [Architecture](docs/architecture.md)
+- [Docker Setup Guide](docs/DOCKER_GUIDE.md)
 
 ## 📝 License
 

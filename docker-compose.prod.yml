@@ -1,19 +1,20 @@
+# Production-like Docker Compose for testing HF deployment locally
 services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.local  # Use local development Dockerfile
-    image: ai-email-assistant:latest
-    container_name: ai-email-assistant
+      dockerfile: Dockerfile  # Use production Dockerfile
+    image: ai-email-assistant:prod
+    container_name: ai-email-assistant-prod
     ports:
-      - "8501:8501"  # Local development port
+      - "7860:7860"  # Production port (same as Hugging Face)
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - DEFAULT_MODEL=${DEFAULT_MODEL:-gpt-4o-mini}
       - DEFAULT_TEMPERATURE=${DEFAULT_TEMPERATURE:-0.3}
       - MAX_TOKENS=${MAX_TOKENS:-1000}
       - APP_TITLE=${APP_TITLE:-AI Email Assistant}
-      - APP_PORT=${APP_PORT:-8501}
+      - APP_PORT=${APP_PORT:-7860}
       - DEBUG=${DEBUG:-false}
       - MAX_CONTEXT_ENTRIES=${MAX_CONTEXT_ENTRIES:-3}
       - ENABLE_CONTEXT_MEMORY=${ENABLE_CONTEXT_MEMORY:-true}
@@ -21,12 +22,7 @@ services:
       - ./data:/app/data
       - ./logs:/app/logs
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
+    # No healthcheck in production (HF Spaces doesn't use it)
     networks:
       - ai-email-network
 
