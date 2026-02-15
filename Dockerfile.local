@@ -1,4 +1,4 @@
-# Production Dockerfile for Hugging Face Spaces
+# Local Development Dockerfile
 # Use Python 3.9 slim image
 FROM python:3.9-slim
 
@@ -31,8 +31,12 @@ COPY . .
 # Create necessary directories
 RUN mkdir -p logs data/examples data/templates
 
-# Expose port 7860 (REQUIRED for Hugging Face Spaces)
-EXPOSE 7860
+# Expose Streamlit port
+EXPOSE 8501
 
-# Run Streamlit app on port 7860
-CMD ["streamlit", "run", "src/ui/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.headless=true", "--browser.serverAddress=0.0.0.0", "--browser.gatherUsageStats=false"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD curl -f http://localhost:8501/_stcore/health || exit 1
+
+# Run Streamlit app
+CMD ["streamlit", "run", "src/ui/streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
