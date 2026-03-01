@@ -1,14 +1,4 @@
----
-title: AI Email Assistant
-emoji: 📧
-colorFrom: blue
-colorTo: purple
-sdk: docker
-pinned: false
-license: mit
----
-
-# 📧 AI Email Assistant - Multi-Agent System
+# ✉️ AI-Powered Email Assistant
 
 ![Python Version](https://img.shields.io/badge/python-3.9%2B-blue)
 ![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-green)
